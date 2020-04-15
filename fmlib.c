@@ -9,16 +9,16 @@
 #include "fmlib.h"
 
 int open_session() {
-	device_fd = open(device_name, O_RDWR, S_IRWXU);
-	if (device_fd == -1) {
+	fm_device_fd = open(fm_device_name, O_RDWR, S_IRWXU);
+	if (fm_device_fd == -1) {
 		printf("Cannot device file: %s\n", strerror(errno));
 		abort();
 	}
-	return device_fd;
+	return fm_device_fd;
 }
 
 int close_session() {
-	int ret = close(device_fd);
+	int ret = close(fm_device_fd);
 	if (ret == -1) {
 		printf("Cannot close device file: %s\n", strerror(errno));
 	}
