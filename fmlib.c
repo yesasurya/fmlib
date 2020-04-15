@@ -31,7 +31,7 @@ int close_session() {
 }
 
 int fm_open(char *fm_file_name) {
-	submit_nvme_command(nvme_cmd_write, 0x0, fm_file_name);
+	submit_nvme_command(nvme_cmd_fs_open, 0x0, fm_file_name);
 }
 
 int fm_write(int fm_fd, const void *buf, size_t count) {
