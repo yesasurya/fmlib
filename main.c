@@ -15,7 +15,7 @@ int main() {
 		.nblocks	= 0,
 		.rsvd		= 0,
 		.metadata	= 0,
-		.addr		= char,
+		.addr		= str,
 		.slba		= slba,
 		.dsmgmt		= 0,
 		.reftag		= 0,
