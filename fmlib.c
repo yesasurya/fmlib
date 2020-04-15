@@ -9,6 +9,7 @@
 #include "fmlib.h"
 
 int open_session() {
+	fm_device_name = "/dev/nvme0n1";
 	fm_device_fd = open(fm_device_name, O_RDWR, S_IRWXU);
 	if (fm_device_fd == -1) {
 		printf("Cannot device file: %s\n", strerror(errno));
