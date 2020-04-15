@@ -25,3 +25,38 @@ int close_session() {
 	}
 	return ret;
 }
+
+int fm_open(char *fm_file_name) {
+	submit_nvme_command(nvme_cmd_write, 0x0, fm_file_name);
+}
+
+int fm_write(int fm_fd, const void *buf, size_t count) {
+
+}
+
+int fm_read(int fm_fd, void *buf, size_t count) {
+
+}
+
+int submit_nvme_command(__u8 opcode, __u64 slba, void *data) {
+	struct nvme_user_io io = {
+		.opcode		= opcode,
+		.flags		= 0,
+		.control	= 0,
+		.nblocks	= 0,
+		.rsvd		= 0,
+		.metadata	= 0,
+		.addr		= data,
+		.slba		= slba,
+		.dsmgmt		= 0,
+		.reftag		= 0,
+		.appmask	= 0,
+		.apptag		= 0,
+	};
+	int ret = ioctl(fm_device_fd, NVME_IOCTL_SUBMIT_IO, &io);
+	if (ret != 0) {
+		printf("Cannot submit NVME command: %s\n", strerror(errno));
+		abort();
+	}
+	return ret;
+}
