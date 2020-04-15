@@ -38,7 +38,7 @@ int fm_read(int fm_fd, void *buf, size_t count) {
 
 }
 
-int submit_nvme_command(__u8 opcode, __u64 slba, void *data) {
+int submit_nvme_command(uint8_t opcode, uint64_t slba, void *data) {
 	struct nvme_user_io io = {
 		.opcode		= opcode,
 		.flags		= 0,
