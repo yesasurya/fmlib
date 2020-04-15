@@ -7,6 +7,7 @@
 
 #include <linux/types.h>
 #include "linux/nvme_ioctl.h"
+#include "linux/nvme.h"
 
 int nvme_io(int fd, __u8 opcode, __u64 slba, __u16 nblocks, __u16 control,
 	      __u32 dsmgmt, __u32 reftag, __u16 apptag,
