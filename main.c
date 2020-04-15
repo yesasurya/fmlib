@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 
 #include "nvme-ioctl.h"
 
@@ -22,7 +24,11 @@ int main() {
 		.appmask	= 0,
 		.apptag		= 0,
 	};
-	int ret = ioctl(3, NVME_IOCTL_SUBMIT_IO, &io);
+	if (ioctl(3, NVME_IOCTL_SUBMIT_IO, &io) != 0) {
+		printf("Error. %s\n", strerror(errno));
+	} else {
+		printf("Success\n");	
+	}
 
 	return 0;
 }
