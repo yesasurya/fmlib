@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <linux/types.h>
+#include <stdint.h>
 
 #include "nvme-ioctl.h"
 #include "fmlib.h"
