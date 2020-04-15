@@ -1,6 +1,15 @@
 #ifndef _FM_LIB_H
 #define _FM_LIB_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 char* fm_device_name;
 int fm_device_fd;
 
