@@ -2,13 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "fmlib.h"
-
-extern char *device_name;
-extern int device_fd;
 
 int open_session() {
 	device_fd = open(device_name, O_RDWR, S_IRWXU);
